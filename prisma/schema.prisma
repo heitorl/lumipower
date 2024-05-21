@@ -12,3 +12,18 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Invoice {
+  id                                String      @id @default(uuid())
+  client_number                     String   
+  reference_month                   DateTime
+  consumed_energy_kwh               Float
+  energy_value_consumed             Float
+  sceee_energy_kwh                  Float
+  sceee_value                       Float
+  compensated_energy_kwh            Float
+  compensated_energy_value          Float
+  public_lighting_contribution      Float
+
+  @@map("invoices")
+}
